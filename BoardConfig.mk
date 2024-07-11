@@ -24,6 +24,9 @@ DEVICE_PATH := device/samsung/o1s
 # APEX image
 DEXPREOPT_GENERATE_APEX_IMAGE := true
 
+# Camera ID's
+SOONG_CONFIG_samsungCameraVars_extra_ids := 52,56,58
+
 # Display
 TARGET_SCREEN_DENSITY := 480
 
