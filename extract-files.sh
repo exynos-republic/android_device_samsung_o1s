@@ -24,6 +24,13 @@ function blob_fixup() {
             xxd -r -p "${2}".hex > "${2}"
             rm "${2}".hex
             ;;
+        vendor/lib/soundfx/libaudioeffectoffload.so | vendor/lib64/soundfx/libaudioeffectoffload.so)
+	    "$PATCHELF" --replace-needed libtinyalsa.so libtinyalsa.exynos2100.so "$2"
+	        ;;
+	    vendor/lib/hw/audio.primary.exynos2100.so)
+	    "$PATCHELF" --replace-needed libaudioroute.so libaudioroute.exynos2100.so "$2"
+            "$PATCHELF" --replace-needed libtinyalsa.so libtinyalsa.exynos2100.so "$2"
+            ;;
     esac
 }
 # If we're being sourced by the common script that we called,
