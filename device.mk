@@ -15,7 +15,7 @@
 #
 
 # Inherit from the common tree
-$(call inherit-product, device/samsung/universal2100-common/common.mk)
+$(call inherit-product, device/samsung/universal2100-common/device-common.mk)
 
 # Inherit proprietary files
 $(call inherit-product, vendor/samsung/o1s/o1s-vendor.mk)

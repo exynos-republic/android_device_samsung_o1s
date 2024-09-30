@@ -15,4 +15,6 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_o1s.mk
+    $(LOCAL_DIR)/o1s.mk
+
+
