@@ -43,7 +43,7 @@ vendor/lib/hw/camera.exynos2100.so
 vendor/lib/libexynoscamera3.so
 vendor/lib/libexynoscamera_vpl_plugin.so
 vendor/lib64/hw/camera.exynos2100.so
-vendor/lib64/libexynoscamera3.so|e436c0586aa11d2cfbd581841b51f993
+vendor/lib64/libexynoscamera3.so
 vendor/lib64/libexynoscamera_vpl_plugin.so
 
 # Camera dependencies
