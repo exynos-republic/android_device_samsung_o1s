@@ -28,7 +28,7 @@ DEXPREOPT_GENERATE_APEX_IMAGE := true
 SOONG_CONFIG_samsungCameraVars_extra_ids := 52,56,58
 
 # Display
-TARGET_SCREEN_DENSITY := 480
+TARGET_SCREEN_DENSITY := 420
 
 # Kernel
 TARGET_KERNEL_CONFIG := exynos2100-o1sxxx_defconfig
