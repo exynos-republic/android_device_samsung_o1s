@@ -30,8 +30,16 @@ SOONG_CONFIG_samsungCameraVars_extra_ids := 52,56,58
 # Display
 TARGET_SCREEN_DENSITY := 420
 
-# Kernel
-TARGET_KERNEL_CONFIG := exynos2100-o1sxxx_defconfig
+TARGET_KERNEL_DIR ?= device/samsung/o1s-kernel
+TARGET_PREBUILT_KERNEL := $(TARGET_KERNEL_DIR)/Image
+TARGET_PREBUILT_DTB := $(TARGET_KERNEL_DIR)/dtb.img
+
+PRODUCT_COPY_FILES += \
+    $(TARGET_PREBUILT_KERNEL):kernel \
+    $(TARGET_PREBUILT_DTB):dtb.img
+
+BOARD_PREBUILT_RECOVERY_DTBOIMAGE := $(TARGET_KERNEL_DIR)/dtbo.img
+BOARD_PREBUILT_DTBOIMAGE := $(TARGET_KERNEL_DIR)/dtbo.img
 
 # Kernel modules
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load))
