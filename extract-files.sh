@@ -28,6 +28,7 @@ function blob_fixup() {
             grep -q "libshim_ui.so" "${2}" || "$PATCHELF" --add-needed libshim_ui.so "$2"
             ;;
         vendor/lib/soundfx/libaudioeffectoffload.so | vendor/lib64/soundfx/libaudioeffectoffload.so)
+            [ "$2" = "" ] && return 0
 	        "$PATCHELF" --replace-needed libtinyalsa.so libtinyalsa.exynos2100.so "$2"
 	        ;;
 	    vendor/lib/hw/audio.primary.exynos2100.so)

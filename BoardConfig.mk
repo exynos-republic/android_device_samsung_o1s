@@ -1,4 +1,3 @@
-#
 # Copyright (C) 2022 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-## Inherit from the common tree
+# Kernel
+TARGET_KERNEL_DIR ?= device/samsung/o1s-kernel
+
+# Inherit from the common tree
 include device/samsung/universal2100-common/BoardConfigCommon.mk
 
 # Inherit from the proprietary configuration
@@ -29,23 +31,3 @@ SOONG_CONFIG_samsungCameraVars_extra_ids := 52,56,58
 
 # Display
 TARGET_SCREEN_DENSITY := 420
-
-TARGET_KERNEL_DIR ?= device/samsung/o1s-kernel
-TARGET_PREBUILT_KERNEL := $(TARGET_KERNEL_DIR)/Image
-TARGET_PREBUILT_DTB := $(TARGET_KERNEL_DIR)/dtb.img
-
-PRODUCT_COPY_FILES += \
-    $(TARGET_PREBUILT_KERNEL):kernel \
-    $(TARGET_PREBUILT_DTB):dtb.img
-
-BOARD_PREBUILT_RECOVERY_DTBOIMAGE := $(TARGET_KERNEL_DIR)/dtbo.img
-BOARD_PREBUILT_DTBOIMAGE := $(TARGET_KERNEL_DIR)/dtbo.img
-
-# Kernel modules
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load))
-BOOT_KERNEL_MODULES := $(BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD)
-BOARD_RECOVERY_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load))
-RECOVERY_KERNEL_MODULES := $(BOARD_RECOVERY_RAMDISK_KERNEL_MODULES_LOAD)
-
-## Properties
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
