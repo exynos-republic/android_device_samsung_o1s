@@ -26,6 +26,13 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+# rro_overlays
+PRODUCT_PACKAGES += \
+	SettingsGoogleOverlay-o1s \
+	SystemUIGoogleOverlay-o1s
+
+PIXELAPPS_ULTRASONIC_UDFPS := true
+
 # Recovery/vendor_boot firmware
 PRODUCT_COPY_FILES += \
     vendor/samsung/o1s/proprietary/vendor/firmware/y792_o1.bin:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/firmware/y792_o1.bin \
